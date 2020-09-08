@@ -1,0 +1,31 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+$default-color: #a7a7a7;
+$blue-color: #008fff;
+$white-color: #fff;
+$disabled-color: #eaeaea;
+$black-color: #000;
+$check-color: #60cf9c;
+$ira-gray-light: #f6f6f6;
+
+$blue: #3498db;
+$green: #37bf91;
+$yellow: #fdba05;
+$ira-gray: #c7c7c7;
+		
+$theme-colors: (
+  primary: $blue,
+  success: $green,
+  warning: $yellow,
+  secondary: $ira-gray
+);
+
+$input-placeholder-color: $ira-gray;
+
+$alert-bg-level:-12;
+$alert-border-level:-12;
+$alert-color-level:0;
+
+$border-radius: 5px;

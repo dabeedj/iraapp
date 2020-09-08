@@ -1,0 +1,78 @@
+<section class="wrap">
+  <h2 class="title">Beneficiaries</h2>
+  <h3 class="sub-title">Primary Beneficiaries</h3>
+
+  <form class="beneficiar" [formGroup]="form">
+    <div formArrayName="beneficiaries" *ngFor="let beneficiar of beneficiariesArray.controls; let i = index" >
+      <div [formGroupName]="i">
+        <div class="form-row">
+          <div class="form-group col">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" placeholder="Name" formControlName="name">
+          </div>
+          <div class="form-group col">
+            <label class="form-label">Date of Birth</label>
+            <input type="date" class="form-control" placeholder="MM/DD/YYYY" formControlName="date">
+
+          </div>
+          <div class="form-group col-1">
+            <label class="form-label"></label>
+            <select class="form-control" formControlName="type">
+              <option value="SSN" [selected]="true">SSN</option>
+              <option value="Driver Licence">Driver Licence</option>
+            </select>
+          </div>
+          <div class="form-group col">
+            <label class="form-label"></label>
+            <input type="text" class="form-control" placeholder="Optional" formControlName="optional">
+          </div>
+          <div class="form-group col-2">
+            <label class="form-label">Relationship</label>
+            <select class="form-control" formControlName="relationShip">
+              <option [selected]="true" [disabled]="true">Select</option>
+              <option value="Trust">Trust</option>
+              <option value="Doubt">Doubt</option>
+            </select>
+          </div>
+          <div class="form-group col-1">
+            <label class="form-label"></label>
+            <input type="text" class="form-control" placeholder="0" min="0" max="100" formControlName="amount">
+            <div class="input-group-percent"></div>
+          </div>
+          <div class="actions" *ngIf="beneficiariesArray.controls[i].valid">
+            <span 
+                class="remove actions__item" 
+                *ngIf="beneficiariesArray.value.length !== 1"
+                (click)="removeBeneficiary(i)">
+              <i class='uil uil-times'></i>
+            </span>
+            <span 
+                class="add actions__item"
+                *ngIf="(beneficiariesArray.value.length === (i+1)) && (total < 100)"
+                (click)="addBeneficiary()">
+              <i class="uil uil-check" ></i>
+            </span>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </form>
+
+  <div *ngIf="total < 100" class="alert alert-warning py-1 px-3" role="alert">
+    <strong>Primary Total: {{total}}%</strong>
+  </div>
+  <div *ngIf="total == 100" class="alert alert-success" role="alert">
+    <strong><i class="uil uil-check"></i> Primary Total: 100%</strong>
+  </div>
+  <div *ngIf="total > 100" class="alert alert-danger" role="alert">
+    <strong><i class="uil uil-times"></i> Primary Total: {{total}}%</strong>
+  </div>
+  <div class="next-step">
+    <div class="custom-control custom-switch mb-5 pl-0">
+      <input type="checkbox" class="custom-control-input" [disabled]="true" id="contingentSwitch">
+      <label class="custom-control-label" for="contingentSwitch"><b>Contingent Beneficiaries</b></label>
+    </div>
+    <button type="button" [class]="" [ngClass]="[total != 100 ? 'btn btn-secondary px-5' : 'btn btn-primary px-5']" [disabled]="total != 100">Next</button>
+  </div>
+</section>

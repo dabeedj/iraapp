@@ -1,0 +1,115 @@
+@import "~src/assets/scss/var";
+
+.header {
+  padding: 20px 20px 15px 20px;
+  display: flex;
+  border-bottom: 1px solid $default-color;
+
+  &__info {
+    width: 320px;
+    margin: 0 100px 0 0;
+
+    &__img {
+    }
+
+    &__descr {
+      font-size: 14px;
+      color: $black-color;
+    }
+  }
+
+  &__steps {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+
+    &__item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin: 0 225px 0 0;
+
+      &__icon {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border: 1px solid $disabled-color;
+        border-radius: 100%;
+
+        &:before {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          content: '';
+          width: 50px;
+          height: 50px;
+          background: $disabled-color;
+          border-radius: 100%;
+        }
+
+        &:after {
+          position: absolute;
+          top: 49%;
+          left: 48px;
+          content: '';
+          width: 294px;
+          height: 2px;
+          background: $disabled-color;
+        }
+      }
+
+      i {
+        position: relative;
+        z-index: 2;
+        font-size: 25px;
+        color: $white-color;
+      }
+
+      &__text {
+        margin: 5px 0 0 0;
+        line-height: 1;
+        color: $disabled-color;
+      }
+
+      &:nth-child(2) {
+        margin-right: 220px;
+
+        .header__steps__item__icon {
+          &:after {
+            width: 270px;
+          }
+        }
+      }
+
+      &:last-child {
+        .header__steps__item__icon {
+          &:after {
+            display: none;
+          }
+        }
+      }
+      &--active {
+        .header__steps__item {
+          &__icon {
+            border: 1px solid $blue-color;
+
+            &:before {
+              width: 44px;
+              height: 44px;
+              background: $blue-color;
+            }
+          }
+          &__text {
+            color: $black-color;
+          }
+        }
+      }
+    }
+  }
+}

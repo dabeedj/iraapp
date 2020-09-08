@@ -1,0 +1,11 @@
+<aside class="aside">
+  <ul class="aside__list">
+    <li *ngFor="let item of asideItems"
+        [ngClass]="item.status"
+        class="aside__list__item">
+      <i
+        [ngClass]="item.icon"
+      ></i>
+      {{ item.name }}</li>
+  </ul>
+</aside>

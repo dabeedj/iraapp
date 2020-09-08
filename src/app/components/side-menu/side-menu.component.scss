@@ -1,0 +1,47 @@
+@import "~src/assets/scss/var";
+
+.aside {
+  width: 280px;
+  height: 100%;
+  border: 1px solid $default-color;
+  border-top: none;
+  border-bottom: none;
+
+  &__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    &__item {
+      padding: 20px 40px;
+      text-transform: capitalize;
+      font-size: 14px;
+      &.checked {
+        color: $default-color;
+      }
+      &.active {
+        background: $ira-gray-light;
+        color: $black-color;
+        font-weight: 700;
+        i {
+          position: relative;
+          color: $blue-color;
+          &:before {
+            position: relative;
+            content: '';
+            background: $blue-color;
+            height: 14px;
+            width: 14px;
+            border-radius: 100%;
+          }
+        }
+      }
+      &.blocked {
+        color: $disabled-color;
+      }
+    }
+  }
+}
+
+.uil-check {
+  color: $check-color;
+}

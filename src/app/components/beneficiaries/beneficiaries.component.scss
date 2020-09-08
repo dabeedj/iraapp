@@ -1,0 +1,103 @@
+@import "~src/assets/scss/var";
+
+.wrap {
+  padding: 50px;
+}
+.title {
+  margin: 0 0 60px 0;
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: 300;
+  color: $default-color;
+  letter-spacing: 3px;
+}
+
+.sub-title {
+  color: $black-color;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.form-label {
+  position: absolute;
+}
+
+.form-row {
+  position: relative;
+}
+
+.form-control {
+  margin-top: 25px;
+}
+
+.actions {
+  position: absolute;
+  right: -78px;
+  width: 75px;
+
+  &__item {
+    position: relative;
+    top: 24px;
+    font-size: 24px;
+  }
+}
+.actions__item:hover {cursor: pointer;}
+
+.remove {color: red;}
+.add {color: $check-color;}
+
+.form-control {
+  background-color: $ira-gray-light;
+  border: none;
+}
+
+.alert {
+  float: right;
+}
+
+.next-step {
+  margin-top: 60px;
+}
+
+.input-group-percent::before {
+  content: "%";
+  color: $input-placeholder-color;
+  position: absolute;
+  right: 18px;
+  bottom: 7px;
+}
+
+.custom-switch .custom-control-label::after {
+    top: calc(0.25rem + 2px);
+    left: unset;
+    right: calc(-1.55rem + 2px);
+    width: calc(1rem - 4px);
+    height: calc(1rem - 4px);
+    background-color: $ira-gray;
+    border-radius: 0.5rem;
+    transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.custom-switch .custom-control-label::before {
+    right: -2.25rem;
+    left: unset;
+    width: 1.75rem;
+    pointer-events: all;
+    border-radius: 0.5rem;
+}
+
+.custom-control-input[disabled] ~ .custom-control-label::before, .custom-control-input:disabled ~ .custom-control-label::before {
+    background-color: $ira-gray-light;
+}
+
+.btn-primary {
+    @include button-variant($blue, darken($blue, 7.5%), darken($blue, 70%), lighten($blue,5%), lighten($blue, 10%), darken($blue,70%));
+    color: white !important;
+    font-weight: 600;
+}
+
+.btn-secondary {
+    @include button-variant($ira-gray, darken($ira-gray, 7.5%), darken($ira-gray, 70%), lighten($ira-gray,5%), lighten($ira-gray, 10%), darken($ira-gray,70%));
+    color: white !important;
+    font-weight: 600;
+}
